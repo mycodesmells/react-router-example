@@ -1,6 +1,6 @@
 import React from 'react';
 import { render } from 'react-dom';
-import { Router, Route, IndexRoute, browserHistory } from 'react-router';
+import { Router, Route, IndexRoute, hashHistory } from 'react-router';
 
 import Root from './components/Root';
 import Welcome from './components/Welcome';
@@ -9,12 +9,12 @@ import Login from './components/Login';
 import App from './components/App';
 
 render((
-    <Router history={browserHistory}>
+    <Router history={hashHistory}>
         <Route path="/" component={Root}>
-            <IndexRoute component={App}>
+            <Route component={App}>
                 <IndexRoute component={Welcome} />
                 <Route path="logout" component={Logout} />
-            </IndexRoute>
+            </Route>
             <Route path="login" component={Login} />
         </Route>
     </Router>
